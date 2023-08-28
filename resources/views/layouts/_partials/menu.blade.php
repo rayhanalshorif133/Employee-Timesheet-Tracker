@@ -5,9 +5,16 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
   <div class="app-brand demo">
     <a href="{{route('dashboard')}}" class="app-brand-link mb-3">
-      <span class="app-brand-logo demo">
-        <img class="" src="{{asset('images/gavel_logo.png')}}" height="100" width="200"/>
-      </span>
+      <div>
+        <span class="app-brand-logo demo">
+          <img class="" src="{{asset('images/logo.png')}}" height="50" width="50"/>
+        </span>
+      </div>
+      <div class="mx-2">
+        <b class="app-brand-logo demo text-dark" style="font-size: 14px">
+          Employee Timesheet Tracker
+        </b>
+      </div>
     </a>
 
     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -27,7 +34,7 @@
     </li>
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">
-        Management Section
+        User Section
       </span>
     </li>
     <li class="menu-item  @if ($currentRoute == 'user.index' || $currentRoute == 'user.edit') active @endif">
@@ -36,79 +43,48 @@
         <div data-i18n="Basic">Users</div>
       </a>
     </li>
-    <li class="menu-item  @if ($currentRoute == 'category.index') active @endif">
-      <a href="{{route('category.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bxs-widget"></i>
-        <div data-i18n="Basic">Category</div>
-      </a>
-    </li>
-    <li class="menu-item  @if ($currentRoute == 'condition.index') active @endif">
-      <a href="{{route('condition.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bxs-report"></i>
-        <div data-i18n="Basic">Conditions</div>
-      </a>
-    </li>
-    <li class="menu-item  @if ($currentRoute == 'movement.index') active @endif">
-      <a href="{{route('movement.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bxl-squarespace"></i>
-        <div data-i18n="Basic">Movements</div>
-      </a>
-    </li>
-    <li class="menu-item  @if ($currentRoute == 'scope-of-delivery.index') active @endif">
-      <a href="{{route('scope-of-delivery.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bxs-layer"></i>
-        <div data-i18n="Basic">Scope of deliveries</div>
+    <li class="menu-item  @if ($currentRoute == 'employee.index' || $currentRoute == 'employee.create' || $currentRoute == 'employee.edit') active @endif">
+      <a href="{{route('employee.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-user-circle"></i>
+        <div data-i18n="Basic">
+          Employee
+        </div>
       </a>
     </li>
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">
-        Product & BID Section
+        Projects & Timesheet Section
       </span>
     </li>
-    <li class="menu-item @if ($currentRoute == 'product.index' || $currentRoute == 'product.create' || $currentRoute == 'product.show' || $currentRoute == 'product.edit' || $currentRoute == 'product.pending.index' || $currentRoute == 'product.rejected.index') open @endif">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bxs-component"></i>
-        <div data-i18n="Misc">Products</div>
+    <li class="menu-item  @if ($currentRoute == 'project.index' || $currentRoute == 'project.create' || $currentRoute == 'project.edit') active @endif">
+      <a href="{{route('project.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div data-i18n="Basic">
+          Projects
+        </div>
       </a>
-      <ul class="menu-sub">
-        <li class="menu-item @if ($currentRoute == 'product.create') active @endif">
-          <a href="{{route('product.create')}}" class="menu-link">
-            <div data-i18n="Error">Add New</div>
-          </a>
-        </li>
-        <li class="menu-item @if ($currentRoute == 'product.index' || $currentRoute == 'product.edit') active @endif">
-          <a href="{{route('product.index')}}" class="menu-link">
-            <div data-i18n="Error">Verified</div>
-          </a>
-        </li>
-        <li class="menu-item @if ($currentRoute == 'product.pending.index') active @endif">
-          <a href="{{route('product.pending.index')}}" class="menu-link">
-            <div data-i18n="Error">Pending</div>
-          </a>
-        </li>
-        <li class="menu-item @if ($currentRoute == 'product.rejected.index') active @endif">
-          <a href="{{route('product.rejected.index')}}" class="menu-link">
-            <div data-i18n="Error">Rejected</div>
-          </a>
-        </li>
-      </ul>
     </li>
-    <li class="menu-item  @if ($currentRoute == 'bid.index' || $currentRoute == 'bid.show') active @endif">
-      <a href="{{route('bid.index')}}" class="menu-link">
-        <i class="menu-icon bx bx-atom"></i>
-        <div data-i18n="Basic">BIDs</div>
+    {{-- 
+    <li class="menu-item  @if ($currentRoute == 'timesheet.index' || $currentRoute == 'timesheet.create' || $currentRoute == 'timesheet.edit') active @endif">
+      <a href="{{route('timesheet.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div data-i18n="Basic">
+          Timesheet
+        </div>
       </a>
     </li>
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">
-        Payment Section
+        Room & Department Section
       </span>
     </li>
-    <li class="menu-item  @if ($currentRoute == 'payment.index' || $currentRoute == 'payment.show') active @endif">
-      <a href="{{route('payment.index')}}" class="menu-link">
-        <i class="menu-icon bx bxs-wallet"></i>
-        <div data-i18n="Basic">Payments</div>
+    <li class="menu-item  @if ($currentRoute == 'timesheet.index') active @endif">
+      <a href="{{route('timesheet.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-user"></i>
+        <div data-i18n="Basic">
+          Timesheet
+        </div>
       </a>
-    </li>
+    </li> --}}
   </ul>
 </aside>

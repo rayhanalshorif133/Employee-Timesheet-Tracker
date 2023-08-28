@@ -23,11 +23,8 @@ class HomeController extends Controller
     public function dashboard()
     {
         $users = User::all()->count();
-        $categories = Category::all()->count();
-        $products = Product::all()->count();
-        $bids = Bid::all()->count();
 
 
-        return view('dashboard', compact('users','categories','products','bids'));
+        return view('dashboard', compact('users'));
     }
 }

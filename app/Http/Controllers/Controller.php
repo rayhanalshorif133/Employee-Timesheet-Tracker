@@ -11,11 +11,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    // use Illuminate\Support\Facades\Session;
-    //  Session::flash('message', $th->getMessage());
-    // Session::flash('type', 'error');
-    // Session::flash('message', 'User successfully updated');
-
          // For API
          protected function respondWithSuccess($message = '', $data = [], $code = 200)
          {
@@ -35,7 +30,4 @@ class Controller extends BaseController
                  'data'     => $data
              ], $code);
          }
-
-
-        //  app('flasher')->addSuccess('Your account has been re-activated.');
 }

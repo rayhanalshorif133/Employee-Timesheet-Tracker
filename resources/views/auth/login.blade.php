@@ -57,12 +57,13 @@
                         <div class="app-brand justify-content-center">
                             <a href="index.html" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
-                                    <img class="" src="{{asset('images/gavel_logo.png')}}" height="100" width="200"/>
+                                    <img class="" src="{{asset('images/logo.png')}}" height="100" width="100"/>
                                 </span>
                             </a>
                         </div>
                         <!-- /Logo -->
-                        <h4 class="mb-2 text-center">Welcome to admin panel! 👋</h4>
+                        <h4 class="mb-2 text-center"><b>Employee Timesheet Tracker</b></h4>
+                        <h5 class="mb-2 text-center">Welcome to admin panel! 👋</h5>
                         <p class="mb-4 text-center">Please sign-in to your account...!</p>
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
