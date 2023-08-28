@@ -56,16 +56,16 @@
         Projects & Timesheet Section
       </span>
     </li>
-    <li class="menu-item  @if ($currentRoute == 'project.index' || $currentRoute == 'project.create' || $currentRoute == 'project.edit') active @endif">
+    <li class="menu-item  @if ($currentRoute == 'project.index') active @endif">
       <a href="{{route('project.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+        <i class="menu-icon tf-icons bx bxs-shopping-bag-alt"></i>
         <div data-i18n="Basic">
           Projects
         </div>
       </a>
     </li>
-    {{-- 
-    <li class="menu-item  @if ($currentRoute == 'timesheet.index' || $currentRoute == 'timesheet.create' || $currentRoute == 'timesheet.edit') active @endif">
+   
+    <li class="menu-item  @if ($currentRoute == 'timesheet.index') active @endif">
       <a href="{{route('timesheet.index')}}" class="menu-link">
         <i class="menu-icon tf-icons bx bx-user"></i>
         <div data-i18n="Basic">
@@ -73,6 +73,7 @@
         </div>
       </a>
     </li>
+     {{-- 
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">
         Room & Department Section
