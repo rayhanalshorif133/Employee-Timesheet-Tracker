@@ -14,18 +14,23 @@
         </h4>
 
         <!-- Hoverable Table rows -->
-        <div class="card">
-            <h5 class="card-header">User List</h5>
+        <div class="card p-5">
+            <div class="card-header d-flex justify-content-between">
+                <h5>
+                    User List
+                </h5>
+                <div>
+                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#createUser">Add New</button>
+                </div>
+            </div>
             <div class="table-responsive text-nowrap">
-                <table class="table table-hover">
+                <table class="table table-hover" id="userTable">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Username</th>
+                            <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
                             <th>Role</th>
-                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -34,26 +39,16 @@
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>
-                                    {{ $user->username ? $user->username : 'N/A' }}
+                                    {{ $user->name }}
                                 </td>
                                 <td>
                                     {{ $user->email ? $user->email : 'N/A' }}
-                                </td>
-                                <td>
-                                    {{ $user->phone ? $user->phone : 'N/A' }}
                                 </td>
                                 <td>
                                     @if ($user->roles[0]->name == 'admin')
                                         <span class="badge bg-label-primary me-1">{{ $user->roles[0]->name }}</span>
                                     @else
                                         <span class="badge bg-label-info me-1">{{ $user->roles[0]->name }}</span>
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($user->verification_status == 'verified')
-                                        <span class="badge bg-label-success me-1">{{ $user->verification_status }}</span>
-                                    @else
-                                        <span class="badge bg-label-danger me-1">{{ $user->verification_status }}</span>
                                     @endif
                                 </td>
                                 <td>
@@ -64,10 +59,10 @@
                                             <i class="bx bx-edit-alt"></i>
                                         </a>
                                         @if (Auth::user()->id != $user->id)
-                                            <a class="btn btn-outline-danger btn-sm itemDeleteBtn"
-                                                href="javascript:void(0);">
-                                                <i class="bx bx-trash"></i>
-                                            </a>
+                                        <a class="btn btn-outline-danger btn-sm itemDeleteBtn"
+                                            href="javascript:void(0);">
+                                            <i class="bx bx-trash"></i>
+                                        </a>
                                         @endif
                                     </div>
                                 </td>
@@ -77,11 +72,18 @@
                 </table>
             </div>
         </div>
-        <!--/ Hoverable Table rows -->
-
     </div>
+    @include('user.create')
 @endsection
 
 {{-- scripts --}}
 @push('scripts')
+<script>
+    $(function(){
+        $('#userTable').DataTable({
+            responsive: true,
+            autoWidth: false,
+        });
+    });
+</script>
 @endpush
