@@ -29,7 +29,8 @@ class DepartmentController extends Controller
     public function update(Request $request)
     {
         $department = Department::find($request->id);
-        $department->update($request->all());
+        $department->name = $request->name;
+        $department->save();
         flash()->addSuccess('Department updated successfully');
         return redirect()->route('department.index');
     }
