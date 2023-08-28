@@ -65,27 +65,35 @@
       </a>
     </li>
    
-    <li class="menu-item  @if ($currentRoute == 'timesheet.index') active @endif">
+    <li class="menu-item  @if ($currentRoute == 'timesheet.index' || $currentRoute == 'timesheet.create' || $currentRoute == 'timesheet.edit' ) active @endif">
       <a href="{{route('timesheet.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+        <i class="menu-icon tf-icons bx bxs-time"></i>
         <div data-i18n="Basic">
           Timesheet
         </div>
       </a>
     </li>
-     {{-- 
+     
     <li class="menu-header small text-uppercase">
       <span class="menu-header-text">
-        Room & Department Section
+        Department & Room Section
       </span>
     </li>
-    <li class="menu-item  @if ($currentRoute == 'timesheet.index') active @endif">
-      <a href="{{route('timesheet.index')}}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-user"></i>
+    <li class="menu-item  @if ($currentRoute == 'department.index') active @endif">
+      <a href="{{route('department.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-building"></i>
         <div data-i18n="Basic">
-          Timesheet
+          Department
         </div>
       </a>
-    </li> --}}
+    </li>
+    <li class="menu-item  @if ($currentRoute == 'room.index') active @endif">
+      <a href="{{route('room.index')}}" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-door-open"></i>
+        <div data-i18n="Basic">
+          Room
+        </div>
+      </a>
+    </li>
   </ul>
 </aside>
