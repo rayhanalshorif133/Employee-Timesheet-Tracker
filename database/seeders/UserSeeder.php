@@ -20,22 +20,22 @@ class UserSeeder extends Seeder
     {
 
         Role::create(['name' => 'admin']);
-        Role::create(['name' => 'user']);
+        Role::create(['name' => 'employee']);
 
         $userAdmin = User::create([
-            'username' => 'Admin User',
+            'name' => 'Admin User',
             'email' => 'admin@example.com',
             'password' => Hash::make('password'),
-            'verification_status' => 'verified'
         ]);
 
         $userAdmin->assignRole('admin');
 
-        $userUser = User::create([
-            'phone' => '01323174104',
-            'otp' => '123456'
+        $employee = User::create([
+            'name' => 'Employee 1',
+            'email' => 'employee@gmail.com',
+            'password' => Hash::make('password'),
         ]);
 
-        $userUser->assignRole('user');
+        $employee->assignRole('employee');
     }
 }
